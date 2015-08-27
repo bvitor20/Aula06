@@ -22,25 +22,26 @@
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="56dp">
+        android:layout_marginTop="56dp"
+        android:id="@+id/rGroup">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Facebook"
-            android:id="@+id/radioButton" />
+            android:id="@+id/radioButtonFace" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Twitter"
-            android:id="@+id/radioButton2" />
+            android:id="@+id/radioButtonTwitter" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="G+"
-            android:id="@+id/radioButton3" />
+            android:id="@+id/radioButtonG" />
 
     </RadioGroup>
 
@@ -48,8 +49,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OK"
-        android:id="@+id/button3"
+        android:id="@+id/buttonOkSocial"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+         />
 
 </RelativeLayout>

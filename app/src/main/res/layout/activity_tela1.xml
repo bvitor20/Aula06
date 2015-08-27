@@ -58,6 +58,7 @@
         android:layout_height="wrap_content"
         android:text="Proxima"
         android:id="@+id/buttonProxima"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/checkBox_Notificacao"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
 </RelativeLayout>
