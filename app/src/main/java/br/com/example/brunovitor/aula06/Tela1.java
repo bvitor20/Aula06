@@ -19,7 +19,7 @@ public class Tela1 extends AppCompatActivity {
     CheckBox chkSelecionar;
     String mResultado;
     String mResultadoSocial;
-    String mResultadoTick;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
