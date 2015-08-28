@@ -15,8 +15,12 @@ public class Tela2 extends AppCompatActivity {
 
 
     Button okSocial;
-    RadioButton escolhaSocial;
-    String mResultado;
+    RadioButton escolhaSocialFace;
+    RadioButton escolhaSocialTwitter;
+    RadioButton escolhaSocialG;
+    String mResultadoSocial;
+    RadioButton escolhi;
+
 
 
     @Override
@@ -25,37 +29,40 @@ public class Tela2 extends AppCompatActivity {
         setContentView(R.layout.activity_tela2);
 
         if (savedInstanceState != null){
-            mResultado = savedInstanceState.getString("resultado");
-
+            mResultadoSocial = savedInstanceState.getString("resultado");
+            if (mResultadoSocial != null){
+                okSocial.setText(mResultadoSocial);
+            }
         }
 
-
+        escolhaSocialFace = (RadioButton) findViewById(R.id.radioButtonFace);
+        escolhaSocialTwitter = (RadioButton) findViewById(R.id.radioButtonTwitter);
+        escolhaSocialG = (RadioButton) findViewById(R.id.radioButtonG);
         okSocial = (Button)findViewById(R.id.buttonOkSocial);
         okSocial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 RadioGroup rd = (RadioGroup) findViewById(R.id.rGroup);
                 switch (rd.getCheckedRadioButtonId()){
                     case R.id.radioButtonFace:
-                        okSocial.setText("Facebook");
-
+                        escolhaSocialFace.getText().toString();
+                        escolhi = escolhaSocialFace;
+                        escolhi.isChecked();
                         break;
                     case R.id.radioButtonTwitter:
-                        okSocial.setText("Twitter");
-
+                        escolhaSocialTwitter.getText().toString();
+                        escolhi = escolhaSocialTwitter;
                         break;
                     case R.id.radioButtonG:
-                        okSocial.setText("G+");
-
+                        escolhaSocialG.getText().toString();
+                        escolhi = escolhaSocialG;
+                        break;
                 }
-                    String resultadoSocial = okSocial.getText().toString();
-                mResultado = resultadoSocial;
+                mResultadoSocial = escolhi.getText().toString();
                 Intent it = new  Intent();
-                it.putExtra("RESULTADO SOCIAL", resultadoSocial);
-                setResult(2,it);
+                it.putExtra("RESULTADO SOCIAL", mResultadoSocial);
+                setResult(RESULT_OK, it);
                 finish();
-
             }
         });
     }
@@ -63,7 +70,8 @@ public class Tela2 extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("resultado", mResultado);
+        outState.putString("resultado", mResultadoSocial);
+
     }
 }
 

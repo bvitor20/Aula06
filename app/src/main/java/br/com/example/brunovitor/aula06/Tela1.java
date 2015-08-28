@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 public class Tela1 extends AppCompatActivity {
 
@@ -17,48 +18,48 @@ public class Tela1 extends AppCompatActivity {
     Button btnSelecionar;
     CheckBox chkSelecionar;
     String mResultado;
+    String mResultadoSocial;
+    String mResultadoTick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela1);
 
+        //Deixar esse botão antes pq senão ele retorna null
+        btnSelecionar = (Button) findViewById(R.id.buttonSelecionar);
+        //Verificando instancia e setando variavel
         if (savedInstanceState != null){
             mResultado= savedInstanceState.getString("resultado");
+            if (mResultado != null){
+                btnSelecionar.setText(mResultado);
+            }
         }
-
         txtNome = (EditText) findViewById(R.id.editTextNome);
-        btnSelecionar = (Button) findViewById(R.id.buttonSelecionar);
         chkSelecionar = (CheckBox) findViewById(R.id.checkBox_Notificacao);
 
-
-
-
-       btnSelecionar.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent it = new Intent(Tela1.this, Tela2.class);
-               startActivityForResult(it, 2);
+        //Método para Chamar a outra tela com parametros
+        btnSelecionar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(Tela1.this, Tela2.class);
+                startActivityForResult(it, 2);
            }
 
        });
     }
-
+    //Pegando valor da outra tela
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 2){
-
-            String resultadoSocial = data.getStringExtra("RESULTADO SOCIAL");
-            btnSelecionar.setText(resultadoSocial);
-            mResultado = resultadoSocial;
-
-
-
+        if (requestCode == 2 && resultCode == RESULT_OK){
+            mResultadoSocial = data.getStringExtra("RESULTADO SOCIAL");
+            btnSelecionar.setText(mResultadoSocial);
+            mResultado = mResultadoSocial;
         }
     }
-
+    //Metodo para Instancia
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
