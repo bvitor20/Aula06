@@ -76,6 +76,7 @@ public class Tela2 extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);

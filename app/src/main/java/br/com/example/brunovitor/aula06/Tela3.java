@@ -19,6 +19,8 @@ public class Tela3 extends AppCompatActivity {
     Boolean mNotfy;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -87,3 +87,4 @@ public class Tela1 extends AppCompatActivity {
         outState.putString("resultado", mResultado);
     }
 }
+
