@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nome:"
+        android:text="@string/nome_text"
         android:id="@+id/textNome"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -26,7 +26,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rede Social:"
+        android:text="@string/Social_NetWork"
         android:id="@+id/textView2"
         android:layout_below="@+id/editTextNome"
         android:layout_alignParentLeft="true"
@@ -36,7 +36,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Selecionar"
+        android:text="@string/btn_select"
         android:id="@+id/buttonSelecionar"
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
@@ -46,7 +46,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Notificação"
+        android:text="@string/Notification"
         android:id="@+id/checkBox_Notificacao"
         android:layout_below="@+id/buttonSelecionar"
         android:layout_alignParentLeft="true"
@@ -56,7 +56,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Proxima"
+        android:text="@string/btn_next"
         android:id="@+id/buttonProxima"
         android:layout_below="@+id/checkBox_Notificacao"
         android:layout_alignRight="@+id/textView2"

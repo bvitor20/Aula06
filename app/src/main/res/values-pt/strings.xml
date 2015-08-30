@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Aula06</string>
+
+    <string name="nome_text">Nome:</string>
+    <string name="title_activity_tela2">Tela2</string>
+    <string name="title_activity_tela3">Tela3</string>
+    <string name="Social_NetWork">Rede Social:</string>
+    <string name="btn_select">Selecionar</string>
+    <string name="Notification">Notificão:</string>
+    <string name="btn_next">Próximo</string>
+    <string name="resultYes">Sim</string>
+    <string name="resultNo">Não</string>
+    <string name="buttonExit">Sair</string>
+</resources>

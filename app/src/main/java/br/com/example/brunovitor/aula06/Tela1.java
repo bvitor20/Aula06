@@ -19,6 +19,7 @@ public class Tela1 extends AppCompatActivity {
     CheckBox chkSelecionar;
     String mResultado;
     String mResultadoSocial;
+    Button mProximo;
 
 
     @Override
@@ -28,6 +29,9 @@ public class Tela1 extends AppCompatActivity {
 
         //Deixar esse botão antes pq senão ele retorna null
         btnSelecionar = (Button) findViewById(R.id.buttonSelecionar);
+        mProximo = (Button) findViewById(R.id.buttonProxima);
+        txtNome = (EditText) findViewById(R.id.editTextNome);
+        chkSelecionar = (CheckBox) findViewById(R.id.checkBox_Notificacao);
         //Verificando instancia e setando variavel
         if (savedInstanceState != null){
             mResultado= savedInstanceState.getString("resultado");
@@ -35,8 +39,6 @@ public class Tela1 extends AppCompatActivity {
                 btnSelecionar.setText(mResultado);
             }
         }
-        txtNome = (EditText) findViewById(R.id.editTextNome);
-        chkSelecionar = (CheckBox) findViewById(R.id.checkBox_Notificacao);
 
         //Método para Chamar a outra tela com parametros
         btnSelecionar.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +49,25 @@ public class Tela1 extends AppCompatActivity {
            }
 
        });
+
+        mProximo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent it3 = new Intent (Tela1.this, Tela3.class);
+                Bundle extras = new Bundle();
+
+                String nome = txtNome.getText().toString();
+
+                extras.putString("RESULTADO NOME", nome);
+                extras.putString("RESULTADO SOCIAL",mResultado);
+                extras.putBoolean("RESULTADO NOTIFICACAO", chkSelecionar.isChecked());
+
+                it3.putExtras(extras);
+                startActivity(it3);
+            }
+
+        });
     }
     //Pegando valor da outra tela
     @Override

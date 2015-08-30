@@ -20,6 +20,9 @@ public class Tela2 extends AppCompatActivity {
     RadioButton escolhaSocialG;
     String mResultadoSocial;
     RadioButton escolhi;
+    RadioGroup rd;
+
+    int mEscolhaFeitaRadio = R.string.btn_select;
 
 
 
@@ -28,22 +31,28 @@ public class Tela2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela2);
 
-        if (savedInstanceState != null){
-            mResultadoSocial = savedInstanceState.getString("resultado");
-            if (mResultadoSocial != null){
-                okSocial.setText(mResultadoSocial);
+        /*if (savedInstanceState != null){
+            mEscolhaFeitaRadio = savedInstanceState.getInt("RESULTADO SOCIAL");
+            if (mEscolhaFeitaRadio != 0){
+                setRadioSelection(mEscolhaFeitaRadio);
+            }else{
+                Intent intent = getIntent();
+                mEscolhaFeitaRadio = intent.getIntExtra("RESULTADO SOCIAL", -1);
+                setRadioSelection(mEscolhaFeitaRadio);
             }
-        }
-
+        }*/
+        rd = (RadioGroup)findViewById(R.id.rGroup);
         escolhaSocialFace = (RadioButton) findViewById(R.id.radioButtonFace);
         escolhaSocialTwitter = (RadioButton) findViewById(R.id.radioButtonTwitter);
         escolhaSocialG = (RadioButton) findViewById(R.id.radioButtonG);
         okSocial = (Button)findViewById(R.id.buttonOkSocial);
+
+
         okSocial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RadioGroup rd = (RadioGroup) findViewById(R.id.rGroup);
-                switch (rd.getCheckedRadioButtonId()){
+
+                switch (rd.getCheckedRadioButtonId()) {
                     case R.id.radioButtonFace:
                         escolhaSocialFace.getText().toString();
                         escolhi = escolhaSocialFace;
@@ -59,7 +68,7 @@ public class Tela2 extends AppCompatActivity {
                         break;
                 }
                 mResultadoSocial = escolhi.getText().toString();
-                Intent it = new  Intent();
+                Intent it = new Intent();
                 it.putExtra("RESULTADO SOCIAL", mResultadoSocial);
                 setResult(RESULT_OK, it);
                 finish();
@@ -70,8 +79,25 @@ public class Tela2 extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("resultado", mResultadoSocial);
 
+        outState.putInt("RESULTADO SOCIAL", mEscolhaFeitaRadio);
+    }
+
+
+    private void setRadioSelection(int index) {
+        switch (index) {
+            case R.id.radioButtonFace:
+                escolhaSocialFace.setChecked(true);
+                break;
+            case  R.id.radioButtonTwitter:
+                escolhaSocialTwitter.setChecked(true);
+                break;
+            case R.id.radioButtonG:
+                escolhaSocialG.setChecked(true);
+                break;
+            default:
+                rd.clearCheck();
+        }
     }
 }
 

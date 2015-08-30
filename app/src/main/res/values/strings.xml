@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">Aula06</string>
 
-   <string name="nome_text">Nome:</string>
+   <string name="nome_text">Name:</string>
     <string name="title_activity_tela2">Tela2</string>
     <string name="title_activity_tela3">Tela3</string>
+    <string name="Social_NetWork">Social NetWork:</string>
+    <string name="btn_select">Select</string>
+    <string name="Notification">Notification:</string>
+    <string name="btn_next">Next</string>
+    <string name="resultYes">Yes</string>
+    <string name="resultNo">No</string>
+    <string name="buttonExit">Exit</string>
+
 </resources>
